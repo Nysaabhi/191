@@ -10401,7 +10401,7 @@ function showLocatorsOverlay() {
   align-items: center;
   gap: 8px;
   font-size: 0.75em;
-  color: rgba(255, 255, 255, 0.8);
+  color: #fff;
 }
 
 .highlight i {
