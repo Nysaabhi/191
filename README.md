@@ -10389,25 +10389,6 @@ function showLocatorsOverlay() {
   line-height: 1.5;
 }
 
-.locator-highlights {
-  background: transparent;
-  display: flex;
-  gap: 15px;
-  margin-top: 15px;
-}
-
-.highlight {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.75em;
-  color: #fff;
-}
-
-.highlight i {
-  color: rgba(255, 215, 0, 0.8);
-}
-
 .locator-card-actions {
   display: flex;
   gap: 10px;
