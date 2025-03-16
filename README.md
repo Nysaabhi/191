@@ -10754,13 +10754,26 @@ function shareLocation(name) {
 
 function renderLocatorCards(filteredData) {
   return filteredData.map(locator => {
-    let buttonText = 'Menu'; // Default to 'Menu'
-    if (locator.category === 'Electronics') {
-      buttonText = 'Products';
-    } else if (locator.category === 'Grocery') {
-      buttonText = 'Products';
-    } else if (locator.category === 'Food') {
-      buttonText = 'Menu';
+    let buttonText, buttonIcon;
+
+    // Set button text and icon based on category
+    switch (locator.category) {
+      case 'Electronics':
+        buttonText = 'Catalogue';
+        buttonIcon = 'fas fa-book'; // Example icon for Catalogue
+        break;
+      case 'Grocery':
+        buttonText = 'Products';
+        buttonIcon = 'fas fa-shopping-basket'; // Example icon for Products
+        break;
+      case 'Food':
+        buttonText = 'Menu';
+        buttonIcon = 'fas fa-utensils'; // Example icon for Menu
+        break;
+      // Add more cases as needed
+      default:
+        buttonText = 'Menu';
+        buttonIcon = 'fas fa-utensils'; // Default icon
     }
 
     return `
@@ -10791,21 +10804,11 @@ function renderLocatorCards(filteredData) {
             <button class="carousel-control next" onclick="changeCarouselSlide(event, 1); event.stopPropagation()">&#10095;</button>
           </div>
           <p class="locator-description">${locator.details.description}</p>
-          <div class="locator-highlights">
-            <div class="highlight">
-              <i class="fas fa-clock"></i>
-              <span>${locator.details.timings}</span>
-            </div>
-            <div class="highlight">
-              <i class="fas fa-wallet"></i>
-              <span>${locator.details.payment}</span>
-            </div>
-          </div>
         </div>
         <div class="locator-card-actions">
           ${locator.details.menu ? `
             <a href="${locator.details.menuLink}" target="_blank" class="action-button" onclick="event.stopPropagation()">
-              <i class="fas fa-utensils"></i> ${buttonText}
+              <i class="${buttonIcon}"></i> ${buttonText}
             </a>
           ` : ''}
           <a href="${locator.details.mapLink}" target="_blank" class="action-button" onclick="event.stopPropagation()">
