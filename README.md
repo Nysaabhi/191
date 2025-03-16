@@ -10390,7 +10390,7 @@ function showLocatorsOverlay() {
 }
 
 .locator-highlights {
-  color: transparent;
+  background: transparent;
   display: flex;
   gap: 15px;
   margin-top: 15px;
